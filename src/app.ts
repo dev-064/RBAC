@@ -1,4 +1,8 @@
 import express, { Application } from 'express';
+import userRoutes from './routes/userRoutes';
+import adminRoutes from './routes/adminRoutes';
+import reportRoutes from './routes/reportRoutes';
+
 
 const app: Application = express();
 
@@ -7,4 +11,7 @@ app.use(express.json());
 
 // Routes
 
+app.use('/api/user', userRoutes);
+app.use('/api/admin', adminRoutes);
+app.use('/api/report', reportRoutes);
 export default app;
