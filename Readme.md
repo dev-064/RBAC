@@ -34,6 +34,11 @@ curl -X GET https://rbac-o1oe.onrender.com/api/test
 
 ### Onboarding Apis
 
+##### You can not register as admin directly
+##### Dummy admin email and password already registered in the database are : 
+##### email: admin123@gmail.com
+##### password: 123456789
+
 #### Register User
 
 ```
