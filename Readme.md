@@ -24,10 +24,12 @@ There are three roles in the system:
 
 The system have the following API endpoints:
 
+You can get the jwt token by logging in and then using the token in the Authorization header.
+
 ## Test Api
 
 ```
-curl -X GET http://localhost:3000/api/test
+curl -X GET https://rbac-o1oe.onrender.com/api/test
 ```
 
 ### Onboarding Apis
@@ -35,12 +37,12 @@ curl -X GET http://localhost:3000/api/test
 #### Register User
 
 ```
-curl -X POST http://localhost:3000/api/user/register \
+curl -X POST https://rbac-o1oe.onrender.com/api/user/register \
   -H "Content-Type: application/json" \
   -d '{
     "email": "user@example.com",
     "password": "password123",
-    "username": "username",
+    "name": "username",
     "role": "USER"
   }'
 
@@ -48,7 +50,7 @@ curl -X POST http://localhost:3000/api/user/register \
 #### Login User
 
 ```
-curl -X POST http://localhost:3000/api/user/login \
+curl -X POST https://rbac-o1oe.onrender.com/api/user/login \
   -H "Content-Type: application/json" \
   -d '{
     "email": "user@example.com",
@@ -61,8 +63,9 @@ curl -X POST http://localhost:3000/api/user/login \
 
 #### Get Moderator Requests
 
+
 ```
-curl -X GET http://localhost:3000/api/admin/moderator-requests \
+curl -X GET https://rbac-o1oe.onrender.com/api/admin/getModeratorRequests \
   -H "Authorization: Bearer jwt_token_here"
 
 ```
@@ -70,7 +73,7 @@ curl -X GET http://localhost:3000/api/admin/moderator-requests \
 #### Approve Moderator Request
 
 ```
-curl -X POST http://localhost:3000/api/admin/moderator-requests/handle \
+curl -X POST https://rbac-o1oe.onrender.com/api/admin/handleModeratorRequest \
   -H "Content-Type: application/json" \
   -H "Authorization: Bearer jwt_token_here" \
   -d '{
@@ -86,7 +89,7 @@ curl -X POST http://localhost:3000/api/admin/moderator-requests/handle \
 #### Get All Reports
 
 ```
-curl -X GET http://localhost:3000/api/reports \
+curl -X GET https://rbac-o1oe.onrender.com/api/report \
   -H "Authorization: Bearer jwt_token_here"
 
 ```
@@ -94,7 +97,7 @@ curl -X GET http://localhost:3000/api/reports \
 #### Create Report
 
 ```
-curl -X POST http://localhost:3000/api/reports \
+curl -X POST https://rbac-o1oe.onrender.com/api/report \
   -H "Content-Type: application/json" \
   -H "Authorization: Bearer jwt_token_here" \
   -d '{
@@ -107,7 +110,7 @@ curl -X POST http://localhost:3000/api/reports \
 #### Update Report
 
 ```
-curl -X PUT http://localhost:3000/api/reports/1 \
+curl -X PUT https://rbac-o1oe.onrender.com/api/report/1 \
   -H "Content-Type: application/json" \
   -H "Authorization: Bearer jwt_token_here" \
   -d '{
@@ -120,7 +123,7 @@ curl -X PUT http://localhost:3000/api/reports/1 \
 #### Delete Report
 
 ```
-curl -X DELETE http://localhost:3000/api/reports/1 \
+curl -X DELETE https://rbac-o1oe.onrender.com/api/report/1 \
   -H "Authorization: Bearer jwt_token_here"
 
 ```
@@ -130,7 +133,7 @@ curl -X DELETE http://localhost:3000/api/reports/1 \
 #### Add Comment
 
 ```
-curl -X POST http://localhost:3000/api/reports/1/comments \
+curl -X POST https://rbac-o1oe.onrender.com/api/report/1/comments \
   -H "Content-Type: application/json" \
   -H "Authorization: Bearer jwt_token_here" \
   -d '{
@@ -142,7 +145,7 @@ curl -X POST http://localhost:3000/api/reports/1/comments \
 #### Delete Comment
 
 ```
-curl -X DELETE http://localhost:3000/api/reports/comments/1 \
+curl -X DELETE https://rbac-o1oe.onrender.com/api/report/comments/1 \
   -H "Authorization: Bearer jwt_token_here"
 
 
