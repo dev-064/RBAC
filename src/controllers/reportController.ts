@@ -91,7 +91,7 @@ export const updateReport = async (req: Request, res: Response): Promise<void> =
         }
 
         const userId = ((req as CustomRequest).token as any).id;
-        const reportId = parseInt(req.params.id);
+        const reportId = req.params.id;
 
         // Check if report exists
         const existingReport = await prismadb.report.findUnique({
@@ -143,7 +143,7 @@ export const updateReport = async (req: Request, res: Response): Promise<void> =
 export const deleteReport = async (req: Request, res: Response) => {
     try {
         const userId = ((req as CustomRequest).token as any).id;
-        const reportId = parseInt(req.params.id);
+        const reportId = req.params.id;
 
         // Check if report exists
         const existingReport = await prismadb.report.findUnique({
@@ -178,7 +178,7 @@ export const deleteReport = async (req: Request, res: Response) => {
 export const addComment = async (req: Request, res: Response) => {
     try {
         const userId = ((req as CustomRequest).token as any).id;
-        const reportId = parseInt(req.params.id);
+        const reportId = req.params.id;
         const { content } = req.body;
 
         // Check if report exists
@@ -211,7 +211,7 @@ export const addComment = async (req: Request, res: Response) => {
 export const deleteComment = async (req: Request, res: Response) => {
     try {
         const userId = ((req as CustomRequest).token as any).id;
-        const commentId = parseInt(req.params.commentId);
+        const commentId = req.params.commentId;
 
         // Check if comment exists and belongs to user
         const existingComment = await prismadb.comment.findUnique({
